@@ -1,381 +1,676 @@
-/* Root Variables for Enhanced Light Theme */
-:root {
-    --primary-color: #4A90E2;
-    --secondary-color: #50E3C2;
-    --highlight-color: #FFB347;
-    --background-color: #F5F8FA;
-    --card-background: #FFFFFF;
-    --border-color: rgba(0, 0, 0, 0.1);
-    --text-color: #333;
-    --font-family: 'Roboto', sans-serif;
-    --transition-speed: 0.3s;
-    --box-shadow-light: 0 8px 15px rgba(0, 0, 0, 0.1);
-    --box-shadow-hover: 0 12px 20px rgba(0, 0, 0, 0.15);
-    --input-border: 1px solid #ddd;
-}
-
-/* Global Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* General Styles */
 body {
-    font-family: var(--font-family);
-    background: linear-gradient(135deg, #E0EAFC, #CFDEF3);
-    color: var(--text-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    min-height: 100vh;
-    padding: 40px;
-    transition: background-color var(--transition-speed), color var(--transition-speed);
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom, #eef2f7, #ffffff);
+  color: #2b2b2b;
+  margin: 0;
+  padding: 0;
+  line-height: 1.8;
+  scroll-behavior: smooth;
 }
 
-/* Wallet Connection Section */
-#connectMetamask {
-    background-color: var(--card-background);
+/* Headers */
+h1, h2, h3 {
+  font-weight: 700;
+  color: #1d3557; /* Navy blue */
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.8rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p.lead {
+  font-size: 1.1rem;
+  color: #5a7184;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Section Containers */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #ffffff, #f8faff);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.4s ease;
+}
+
+.container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Style */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Admin Page Specific Styles */
+#admin-page h1, #admin-page h3 {
+  color: #1d3557; /* Slightly darker tone for headers */
+}
+
+#admin-page .table {
+  border: 1px solid #dee2e6; /* Add a border to tables */
+  background: #fdfdfd; /* Subtle background for tables */
+}
+
+#admin-page .table th {
+  background: #f8f9fa;
+  color: #343a40;
+}
+
+#admin-page .table td {
+  color: #495057;
+}
+
+#admin-page .card {
+  background: #f8fafc; /* Light blue-gray for cards */
+  padding: 25px; /* Increase padding slightly */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); /* Enhance shadow for better separation */
+}
+
+#admin-page button.btn-primary {
+  background: linear-gradient(90deg, #007bff, #0056b3); /* Gradient button */
+}
+
+#admin-page button.btn-primary:hover {
+  background: linear-gradient(90deg, #0056b3, #004080); /* Darker hover effect */
+}
+
+#admin-page #charity-validation-section h3,
+#admin-page #validated-charities-section h3,
+#admin-page #admin-management-section h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  #admin-page .table th, #admin-page .table td {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  #admin-page .card {
     padding: 20px;
-    border-radius: 12px;
-    box-shadow: var(--box-shadow-light);
-    margin-bottom: 40px;
-    width: 80%;
-    max-width: 500px;
-    animation: fadeIn 0.6s ease-out;
-    transition: transform 0.3s ease;
+  }
 }
 
-#connectMetamask:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--box-shadow-hover);
+/* Charity Page Specific Styles */
+#charity-page h1, #charity-page h3 {
+  color: #1d3557;  /* Navy blue, consistent with headers */
 }
 
-#connectWalletMessage {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--text-color);
-    opacity: 0;
-    animation: fadeInText 1s 0.2s forwards;
+#charity-page .btn-primary {
+  background: linear-gradient(90deg, #007bff, #0056b3); /* Consistent blue gradient */
+  color: #fff;
 }
 
-#connectWallet {
-    padding: 12px 36px;
-    border: none;
-    border-radius: 25px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: #fff;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    animation: popIn 0.7s 0.5s forwards;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+#charity-page .btn-primary:hover {
+  background: linear-gradient(90deg, #0056b3, #003f8a); /* Darker blue on hover */
 }
 
-#connectWallet:hover {
-    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-    transform: scale(1.05);
+#charity-page .btn-secondary {
+  background: linear-gradient(90deg, #6c757d, #495057); /* Gray gradient for secondary button */
+  color: #fff;
 }
 
-/* Voting Station Section */
-#votingStation {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 12px;
-    background-color: var(--card-background);
-    box-shadow: var(--box-shadow-light);
-    opacity: 0;
-    animation: slideUp 0.7s 0.6s forwards;
+#charity-page .btn-secondary:hover {
+  background: linear-gradient(90deg, #495057, #343a40); /* Darker gray on hover */
 }
 
-#timerMessage {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #555;
-    padding: 10px 0;
-    animation: fadeInText 1s 0.4s forwards;
+#charity-page #register-charity-section,
+#charity-page #my-charities-section {
+  background: linear-gradient(135deg, #ffffff, #f8faff); /* Subtle gradient for sections */
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Light shadow for separation */
+
+}
+#charity-page #charity-actions {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  gap: 20px; /* Add space between the buttons */
+  margin-top: 20px;
 }
 
-/* Loader Animation */
-.loader {
-    border: 4px solid rgba(200, 200, 200, 0.5);
-    border-top: 4px solid var(--secondary-color);
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    animation: spin 1s linear infinite;
-    margin: 10px auto;
+#charity-page .btn-primary,
+#charity-page .btn-secondary {
+  padding: 15px 30px; /* Adjust padding for larger buttons */
+  font-size: 1.1rem; /* Slightly larger font size */
+  border-radius: 8px; /* Rounded corners for buttons */
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+
+#charity-page table {
+  margin-top: 20px;
+  border: 1px solid #dee2e6;
+  background: #ffffff; /* White table background */
 }
 
-/* Table Styling */
-#candidateBoard, #resultBoard {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    box-shadow: var(--box-shadow-light);
-    border-radius: 8px;
-    overflow: hidden;
-    opacity: 0;
-    animation: fadeInText 0.8s 0.8s forwards;
+#charity-page table th {
+  background: #f4f8fc; /* Light background for table headers */
+  color: #495057; /* Consistent gray text */
+  text-transform: uppercase;
 }
 
-#candidateBoard th, #candidateBoard td, #resultBoard th, #resultBoard td {
-    padding: 15px;
-    border: 1px solid #ddd;
-    color: #333;
+#charity-page table td {
+  color: #495057; /* Consistent gray text for table data */
 }
 
-#candidateBoard th, #resultBoard th {
-    background-color: var(--primary-color);
-    color: #fff;
-    font-weight: bold;
-    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.2);
-}
 
-#candidateBoard td, #resultBoard td {
-    background-color: #f8f9fb;
-    transition: background-color 0.3s ease;
-}
 
-#candidateBoard tr:hover td, #resultBoard tr:hover td {
-    background-color: #f0f4f8;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Vote Form */
-#voteForm {
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    align-items: center;
-}
-
-#voteForm p {
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-#voteForm label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#vote {
-    font-size: 1rem;
-    padding: 12px 24px;
-    border-radius: 8px;
-    background-color: #F0F2F5;
-    color: var(--text-color);
-    border: var(--input-border);
-    text-align: center;
-    animation: popIn 0.7s 0.9s forwards;
-    transition: box-shadow 0.3s ease;
-    width: calc(100% - 48px);
-    max-width: 400px;
-    margin-bottom: 10px;
-}
-
-#vote:focus {
-    box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
-    border: 1px solid var(--primary-color);
-}
-
-/* Input Placeholder */
-input::placeholder, #vote::placeholder {
-    color: rgba(51, 51, 51, 0.6);
-    font-style: italic;
-}
-
-/* General Button Styling */
-#sendVote, #startAnElection, #addTheCandidate {
-    padding: 12px 28px;
-    border: none;
-    border-radius: 25px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: #fff;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: var(--box-shadow-light);
-    transition: background var(--transition-speed), transform 0.2s ease;
-    text-transform: uppercase;
-}
-
-#sendVote:hover, #startAnElection:hover, #addTheCandidate:hover {
-    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-    transform: scale(1.05);
-}
-
-/* Show Result Button Styling */
-#showResult {
-    padding: 12px 28px;
-    border: none;
-    border-radius: 25px;
-    background: linear-gradient(135deg, var(--highlight-color), #FF6B6B); /* Different gradient */
-    color: #fff;
-    font-size: 1rem; /* Adjust size if needed */
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: var(--box-shadow-light);
-    transition: background var(--transition-speed), transform 0.2s ease;
-    text-transform: uppercase;
-}
-
-#showResult:hover {
-    background: linear-gradient(135deg, #FF6B6B, var(--highlight-color));
-    transform: scale(1.05);
-}
-
-/* Input Styling */
-input[type="text"], input[type="number"] {
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    color: var(--text-color);
-    background-color: #F8F9FB;
-    box-shadow: var(--box-shadow-light);
-    transition: border 0.3s ease, box-shadow 0.3s ease;
-    width: calc(100% - 30px);
-    max-width: 400px;
-    margin-bottom: 10px;
-}
-
-input[type="text"]:focus, input[type="number"]:focus {
-    outline: none;
-    border: 1px solid var(--primary-color);
-    box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
-}
-
-/* Admin Center Styling */
-#admin {
-    width: 80%;
-    max-width: 800px;
-    padding: 30px;
-    margin: 40px auto;
-    background-color: var(--card-background);
-    border-radius: 12px;
-    box-shadow: var(--box-shadow-light);
-    opacity: 0;
-    animation: fadeInText 0.9s 1.2s forwards;
-    transition: box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#admin:hover {
-    box-shadow: var(--box-shadow-hover);
-}
-
-#adminHeading {
+/* Responsive Design for Charity Page */
+@media (max-width: 768px) {
+  #charity-page h1 {
     font-size: 2rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin-bottom: 30px;
-    text-align: center;
+  }
+
+  #charity-page .btn-primary,
+  #charity-page .btn-secondary {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  #charity-page table th,
+  #charity-page table td {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  #charity-page #register-charity-section,
+  #charity-page #my-charities-section {
+    padding: 15px;
+  }
 }
 
-/* Tools Container */
-#tools {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+/* Donor Page Specific Styles */
+#donor-page h1, #donor-page h3 {
+  color: #1d3557; /* Navy blue for headers */
 }
 
-/* Start Election and Add Candidate Sections */
-#startElection, #addCandidate {
-    background-color: #f9f9f9;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: var(--box-shadow-light);
-    width: 100%;
+#donor-page .btn-success {
+  background: linear-gradient(90deg, #28a745, #218838); /* Green gradient for the Donate button */
+  color: #fff;
 }
 
-#startElection p, #addCandidate p {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--text-color);
-    margin-bottom: 20px;
-    text-align: center;
+#donor-page .btn-success:hover {
+  background: linear-gradient(90deg, #218838, #19692c); /* Darker green on hover */
 }
 
-#startElection input, #addCandidate input {
-    width: 100%;
-    padding: 12px 15px;
-    margin-bottom: 20px;
-    border: var(--input-border);
-    border-radius: 8px;
+#donor-page .btn-danger {
+  background: linear-gradient(90deg, #dc3545, #c82333); /* Red gradient for Cancel button */
+  color: #fff;
+}
+
+#donor-page .btn-danger:hover {
+  background: linear-gradient(90deg, #c82333, #a71d2a); /* Darker red on hover */
+}
+
+#donor-page #donation-form-section {
+  background: linear-gradient(135deg, #ffffff, #f8faff); /* Subtle gradient for the form */
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Light shadow for form separation */
+}
+
+#donor-page #charity-list-section {
+  background: linear-gradient(135deg, #ffffff, #eef2f7); /* Subtle gradient for charity list */
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+#donor-page table {
+  margin-top: 20px;
+  border: 1px solid #dee2e6;
+  background: #ffffff; /* White background for table */
+}
+
+#donor-page table th {
+  background: #f4f8fc; /* Light background for table headers */
+  color: #495057; /* Consistent gray text */
+  text-transform: uppercase;
+}
+
+#donor-page table td {
+  color: #495057; /* Consistent gray text for table data */
+}
+
+/* Responsive Design for Donor Page */
+@media (max-width: 768px) {
+  #donor-page h1 {
+    font-size: 2rem;
+  }
+
+  #donor-page .btn-success,
+  #donor-page .btn-danger {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  #donor-page table th,
+  #donor-page table td {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  #donor-page #donation-form-section,
+  #donor-page #charity-list-section {
+    padding: 15px;
+  }
+}
+
+/* Main Page Specific Styles */
+#main-page {
+  background: linear-gradient(to bottom, #eef2f7, #ffffff);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.main-content {
+  background: linear-gradient(135deg, #ffffff, #f8faff);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 1200px;
+}
+
+.main-content h1 {
+  font-size: 2.8rem;
+  color: #1d3557;
+  margin-bottom: 15px;
+}
+
+.main-content p.lead {
+  font-size: 1.2rem;
+  color: #5a7184;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.wallet-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#wallet-address {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-top: 10px;
+}
+
+/* Connect Wallet Button */
+#connect-wallet {
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: #fff;
+  padding: 12px 40px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+#connect-wallet:hover {
+  background: linear-gradient(90deg, #0056b3, #003f8a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Role Selection Section */
+#role-selection {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#role-selection h3 {
+  font-size: 1.8rem;
+  color: #1d3557;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.role-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between buttons */
+}
+
+/* Donor Button */
+.btn-donor {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #28a745, #218838); /* Vibrant Green */
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Space between icon and text */
+}
+
+.btn-donor:hover {
+  background: linear-gradient(90deg, #218838, #19692c);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Charity Button */
+.btn-charity {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #ff6f61, #d6453d); /* Vibrant Red */
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Space between icon and text */
+}
+
+.btn-charity:hover {
+  background: linear-gradient(90deg, #d6453d, #b12d27);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.role-buttons .btn i {
+  font-size: 1.5rem;
+}
+
+/* Transaction History Section */
+#transactions-section {
+  text-align: center;
+}
+
+#transactions-section h2 {
+  font-size: 1.8rem;
+  color: #1d3557;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+#transactions-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#transactions-section table th {
+  background: #f4f8fc;
+  color: #495057;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  padding: 10px;
+}
+
+#transactions-section table td {
+  color: #495057;
+  font-size: 0.9rem;
+  padding: 10px;
+  text-align: center;
+}
+
+#transactions-section table tr:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+#transactions-section table tr:nth-child(even) {
+  background: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content h1 {
+    font-size: 2.4rem;
+  }
+
+  .role-buttons .btn {
+    padding: 10px 20px;
     font-size: 1rem;
-    background-color: #F8F9FB;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  #transactions-section table th,
+  #transactions-section table td {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
 }
 
-#startElection input:focus, #addCandidate input:focus {
-    outline: none;
-    border: 1px solid var(--primary-color);
-    box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
+/* Main Page Specific Styles */
+#main-page {
+  background: linear-gradient(to bottom, #eef2f7, #ffffff);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
-#startAnElection, #addTheCandidate {
-    padding: 12px 28px;
-    border: none;
-    border-radius: 25px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: var(--box-shadow-light);
-    transition: background var(--transition-speed), transform 0.2s ease;
-    width: 100%;
+/* Container Styles */
+.container {
+  background: linear-gradient(135deg, #ffffff, #f8faff);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  width: 100%;
+  max-width: 1000px;
 }
 
-#startAnElection:hover, #addTheCandidate:hover {
-    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-    transform: scale(1.03);
+.container h1 {
+  font-size: 2.8rem;
+  color: #1d3557;
+  margin-bottom: 15px;
 }
 
-/* Responsive Layout */
-@media (min-width: 768px) {
-    #tools {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    #startElection, #addCandidate {
-        width: 48%;
-    }
+.container p.lead {
+  font-size: 1.2rem;
+  color: #5a7184;
+  margin-bottom: 30px;
 }
 
-/* Keyframe Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* Connect Wallet Button */
+#connect-wallet {
+  padding: 12px 40px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
-@keyframes fadeInText {
-    0% { opacity: 0; transform: translateY(10px); }
-    100% { opacity: 1; transform: translateY(0); }
+#connect-wallet:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-@keyframes popIn {
-    0% { transform: scale(0.9); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
+/* Wallet Address */
+#wallet-address {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-top: 10px;
+  text-align: center;
 }
 
-@keyframes slideUp {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+/* General Box Styles */
+/* Ensure consistent width and styling for all main sections */
+.container,
+#role-selection,
+#transactions-section {
+  width: 80%; /* Adjust the width to cover 90% of the screen */
+  max-width: 80%; /* Ensure maximum width stays proportional to the screen */
+  margin: 30px auto; /* Center align all sections */
+  padding: 30px; /* Add uniform padding */
+  background: linear-gradient(135deg, #ffffff, #f8faff); /* Apply the same gradient */
+  border-radius: 15px; /* Consistent rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Unified shadow effect */
+}
+
+/* Header Section */
+.container h1 {
+  font-size: 2.8rem;
+  color: #1d3557;
+  margin-bottom: 15px;
+}
+
+.container p.lead {
+  font-size: 1.2rem;
+  color: #5a7184;
+  margin-bottom: 30px;
+}
+
+/* Role Selection Section */
+#role-selection {
+  text-align: center;
+  margin: 30px auto; /* Spacing between sections */
+}
+
+#role-selection h3 {
+  font-size: 1.8rem;
+  color: #1d3557;
+  margin-bottom: 20px;
+}
+
+#role-selection .btn {
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Donor Button */
+#role-selection .btn-primary {
+  background: linear-gradient(90deg, #28a745, #218838);
+  color: #fff;
+}
+
+#role-selection .btn-primary:hover {
+  background: linear-gradient(90deg, #218838, #19692c);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Charity Button */
+#role-selection .btn-secondary {
+  background: linear-gradient(90deg, #ff6f61, #d6453d);
+  color: #fff;
+}
+
+#role-selection .btn-secondary:hover {
+  background: linear-gradient(90deg, #d6453d, #b12d27);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Transactions Section */
+#transactions-section {
+  text-align: center;
+  margin: 30px auto;
+}
+
+#transactions-section h2 {
+  font-size: 1.8rem;
+  color: #1d3557;
+  margin-bottom: 20px;
+}
+
+#transactions-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#transactions-section table th {
+  background: #f4f8fc;
+  color: #495057;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  padding: 10px;
+}
+
+#transactions-section table td {
+  color: #495057;
+  font-size: 0.9rem;
+  padding: 10px;
+  text-align: center;
+}
+
+#transactions-section table tr:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+#transactions-section table tr:nth-child(even) {
+  background: #ffffff;
+}
+
+
+
+/* Fixed Footer */
+footer {
+  text-align: center;
+  width: 100%; /* Ensure the footer spans the full width */
+  padding: 10px;
+  background: linear-gradient(to right, #1d3557, #457b9d);
+  color: white;
+  font-size: 0.9rem;
+  position: fixed; /* Make the footer fixed at the bottom */
+  bottom: 0; /* Align it to the bottom of the viewport */
+  left: 0; /* Align it to the left edge of the viewport */
+  z-index: 1000; /* Ensure it stays above other elements */
+  box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Content */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the body fills the full viewport height */
+  margin: 0; /* Remove default margin */
+}
+
+.main-content {
+  flex: 1; /* Push content above the footer */
+  margin-bottom: 80px; /* Adjust based on footer height to prevent overlap */
 }
